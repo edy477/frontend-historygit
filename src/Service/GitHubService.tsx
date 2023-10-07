@@ -1,6 +1,8 @@
 // src/GithubService.ts
 
 import axios, { AxiosResponse } from 'axios';
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 export interface Commit {
     sha: string;
@@ -17,10 +19,23 @@ export interface Commit {
 }
 
 export class GithubService {
-    private apiUrl = 'http://localhost:5000/api/github'; // Replace with your local API endpoint
+    private apiUrl = 'http://localhost:3000'; // Replace with your local API endpoint
 
     async getCommits(owner: string, repo: string): Promise<Commit[]> {
-        try {
+
+        try
+        {
+            const response: AxiosResponse<Commit[]> = await axios.get(
+                `${this.apiUrl}/commits/${owner}/${repo}`
+
+            );
+            return response.data;
+
+        }catch (e) {
+            throw  error;
+        }
+
+       /* try {
             const response: AxiosResponse<Commit[]> = await axios.get(
                 `${this.apiUrl}/commits`,
                 {
@@ -30,6 +45,6 @@ export class GithubService {
             return response.data;
         } catch (error) {
             throw error;
-        }
+        }*/
     }
 }
