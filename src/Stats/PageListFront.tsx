@@ -9,7 +9,6 @@ import Paper from '@mui/material/Paper';
 import {Stack} from "@mui/material";
 
 import {Typography} from  '@mui/material';
-import Selector from "./Selector.tsx";
 
 // @ts-ignore
 const font = "'Inter', sans-serif";
@@ -32,10 +31,10 @@ const githubService = new GithubService();
 function PageList ()  {
 
     const [commits, setCommits] = useState<any[]>([]);
-    const option = ["master","main"]
+
 
     const owner = 'edy477';
-    const repo       = 'backend-githistory'
+    const repo       = 'frontend-githistory'
     useEffect(() => {
         // Axios request to fetch the initial array of objects
         async function fetchDataFromApi() {
@@ -86,8 +85,6 @@ function PageList ()  {
     // @ts-ignore
     return (
         <Box>
-
-            <Selector options={option}/>
 
 <TableContainer component={Paper}>
     <Table sx={{ minWidth: 650 }} aria-label="simple table">
