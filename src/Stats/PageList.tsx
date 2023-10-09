@@ -10,6 +10,7 @@ import {Stack} from "@mui/material";
 
 import {Typography} from  '@mui/material';
 import Selector from "./Selector.tsx";
+import GitHubCommitGrid from "./GitHubCommitGrid.tsx";
 
 // @ts-ignore
 const font = "'Inter', sans-serif";
@@ -80,14 +81,15 @@ function PageList ()  {
     }, []); // The empty dependency array means this effect runs once, similar to componentDidMount
 
 
-        console.log(commits)
+
 
 
     // @ts-ignore
     return (
         <Box>
 
-            <Selector options={option}/>
+
+<GitHubCommitGrid owner={owner} repo={repo}/>
 
 <TableContainer component={Paper}>
     <Table sx={{ minWidth: 650 }} aria-label="simple table">

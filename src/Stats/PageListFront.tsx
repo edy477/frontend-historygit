@@ -34,7 +34,7 @@ function PageList ()  {
 
 
     const owner = 'edy477';
-    const repo       = 'frontend-githistory'
+    const repo       = 'frontend-historygit';
     useEffect(() => {
         // Axios request to fetch the initial array of objects
         async function fetchDataFromApi() {
@@ -79,7 +79,6 @@ function PageList ()  {
     }, []); // The empty dependency array means this effect runs once, similar to componentDidMount
 
 
-        console.log(commits)
 
 
     // @ts-ignore
